@@ -1,0 +1,94 @@
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(ellipse at center, #0a0a1a 0%, #000005 100%);
+  font-family: 'Inter', sans-serif;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(68, 136, 255, 0.2);
+  border-radius: 16px;
+  padding: 2.5rem;
+  width: 360px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 40px rgba(68, 136, 255, 0.1);
+}
+
+.logo {
+  text-align: center;
+  color: #fff;
+  font-size: 1.6rem;
+  margin: 0 0 1.5rem;
+  text-shadow: 0 0 20px rgba(68, 136, 255, 0.8);
+}
+
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tabs button {
+  flex: 1;
+  padding: 0.5rem;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tabs button.active {
+  background: rgba(68, 136, 255, 0.2);
+  border-color: rgba(68, 136, 255, 0.5);
+  color: #fff;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.form input {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  color: #fff;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form input:focus {
+  border-color: rgba(68, 136, 255, 0.6);
+}
+
+.error {
+  color: #ff6b6b;
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.submit {
+  margin-top: 0.5rem;
+  padding: 0.8rem;
+  background: linear-gradient(135deg, #2255cc, #4488ff);
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(68, 136, 255, 0.3);
+  transition: box-shadow 0.2s;
+}
+
+.submit:hover {
+  box-shadow: 0 0 30px rgba(68, 136, 255, 0.6);
+}
