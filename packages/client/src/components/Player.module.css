@@ -1,0 +1,133 @@
+.wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: #000008;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+}
+
+.hud {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2rem;
+  background: linear-gradient(to top, rgba(0, 0, 10, 0.85) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hud > * {
+  pointer-events: all;
+}
+
+.trackInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.cover {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 0 20px rgba(68, 136, 255, 0.5);
+}
+
+.title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(68, 136, 255, 0.8);
+}
+
+.artist {
+  margin: 0.2rem 0 0;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1rem;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: background 0.2s, box-shadow 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 0;
+}
+
+.btn:hover {
+  background: rgba(68, 136, 255, 0.25);
+  box-shadow: 0 0 12px rgba(68, 136, 255, 0.5);
+}
+
+.playBtn {
+  width: 52px;
+  height: 52px;
+  font-size: 1.3rem;
+  background: rgba(68, 136, 255, 0.2);
+  border-color: rgba(68, 136, 255, 0.5);
+  box-shadow: 0 0 20px rgba(68, 136, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.progressWrapper {
+  margin-bottom: 1rem;
+  cursor: pointer;
+  padding: 6px 0;
+}
+
+.progressBar {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+  margin-bottom: 0.4rem;
+  position: relative;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #4488ff, #88aaff);
+  box-shadow: 0 0 8px rgba(68, 136, 255, 0.8);
+  border-radius: 2px;
+  transition: width 0.1s linear;
+}
+
+.times {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.freqBars {
+  margin-top: 0.5rem;
+}

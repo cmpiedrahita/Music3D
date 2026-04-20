@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:4.4
+    container_name: music3d_mongo
+    restart: unless-stopped
+    ports:
+      - '27017:27017'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: music3d_pass
+      MONGO_INITDB_DATABASE: music3d
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:
