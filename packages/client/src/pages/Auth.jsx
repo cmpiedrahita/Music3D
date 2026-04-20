@@ -26,7 +26,7 @@ export default function Auth() {
   return (
     <div className={styles.wrapper}>
       <div className={styles.card}>
-        <h1 className={styles.logo}>🎵 Music3D</h1>
+        <h1 className={styles.logo}>Music3D</h1>
         <div className={styles.tabs}>
           <button className={mode === 'login' ? styles.active : ''} onClick={() => setMode('login')}>Login</button>
           <button className={mode === 'register' ? styles.active : ''} onClick={() => setMode('register')}>Register</button>

@@ -9,6 +9,8 @@ export default function Home() {
   const [selected, setSelected] = useState(null);
   const [newName, setNewName] = useState('');
   const [newTrack, setNewTrack] = useState({ title: '', artist: '', audioUrl: '', coverUrl: '' });
+  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [panelOpen, setPanelOpen] = useState(true);
   const { setTrack } = usePlayerStore();
   const logout = useAuthStore((s) => s.logout);
 
@@ -42,9 +44,9 @@ export default function Home() {
   return (
     <div className={styles.layout}>
       {/* Sidebar */}
-      <aside className={styles.sidebar}>
+      <aside className={`${styles.sidebar} ${sidebarOpen ? '' : styles.sidebarHidden}`}>
         <div className={styles.sidebarHeader}>
-          <span className={styles.logo}>🎵 Music3D</span>
+          <span className={styles.logo}>Music3D</span>
           <button onClick={logout} className={styles.logoutBtn}>Exit</button>
         </div>
 
@@ -62,7 +64,7 @@ export default function Home() {
             <li
               key={p._id}
               className={selected?._id === p._id ? styles.active : ''}
-              onClick={() => setSelected(p)}
+              onClick={() => { setSelected(p); setPanelOpen(true); }}
             >
               {p.name}
               <span className={styles.trackCount}>{p.tracks.length}</span>
@@ -71,13 +73,23 @@ export default function Home() {
         </ul>
       </aside>
 
+      {/* Toggle sidebar button */}
+      <button className={styles.sidebarToggle} onClick={() => setSidebarOpen((v) => !v)}>
+        {sidebarOpen ? '«' : '»'}
+      </button>
+
       {/* Main */}
       <main className={styles.main}>
         <Player />
 
-        {selected && (
+        {selected && panelOpen && (
           <div className={styles.playlistPanel}>
-            <h2 className={styles.playlistName}>{selected.name}</h2>
+            <div className={styles.playlistPanelHeader}>
+              <h2 className={styles.playlistName}>{selected.name}</h2>
+              <button className={styles.panelToggle} onClick={() => setPanelOpen(false)}>
+                ✕
+              </button>
+            </div>
 
             {/* Add track form */}
             <form onSubmit={addTrack} className={styles.addTrack}>
@@ -96,7 +108,7 @@ export default function Home() {
                     className={styles.playTrack}
                     onClick={() => setTrack(track, selected.tracks, i)}
                   >
-                    ▶ {track.title} — <span>{track.artist}</span>
+                    {track.title} — <span>{track.artist}</span>
                   </button>
                   <button className={styles.removeTrack} onClick={() => removeTrack(track._id)}>✕</button>
                 </li>

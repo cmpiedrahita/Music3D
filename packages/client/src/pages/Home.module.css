@@ -107,17 +107,39 @@
   padding: 0.1rem 0.4rem;
 }
 
-.main {
-  flex: 1;
-  position: relative;
+.sidebarHidden {
+  display: none;
+}
+
+.sidebarToggle {
+  align-self: flex-start;
+  margin-top: 1rem;
+  z-index: 20;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-left: none;
+  color: #fff;
+  border-radius: 0 6px 6px 0;
+  width: 18px;
+  height: 28px;
+  font-size: 0.75rem;
+  cursor: pointer;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+
+.sidebarToggle:hover {
+  background: rgba(68, 136, 255, 0.25);
 }
 
 .playlistPanel {
   position: absolute;
   top: 1.5rem;
-  right: 1.5rem;
+  left: 1.5rem;
   width: 320px;
   background: rgba(0, 0, 15, 0.85);
   border: 1px solid rgba(68, 136, 255, 0.2);
@@ -130,9 +152,29 @@
 }
 
 .playlistName {
-  margin: 0 0 1rem;
+  margin: 0;
   font-size: 1rem;
   font-weight: 600;
+  color: #fff;
+}
+
+.playlistPanelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.panelToggle {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.4rem;
+}
+
+.panelToggle:hover {
   color: #fff;
 }
 

@@ -15,7 +15,8 @@ export default function Player() {
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio || !currentTrack) return;
-    audio.src = currentTrack.audioUrl;
+    const proxyUrl = `http://localhost:4000/api/audio/proxy?url=${encodeURIComponent(currentTrack.audioUrl)}`;
+    audio.src = proxyUrl;
     audio.play().catch(() => {});
   }, [currentTrack]);
 
@@ -69,11 +70,22 @@ export default function Player() {
 
         {/* Controls */}
         <div className={styles.controls}>
-          <button onClick={prev} className={styles.btn}>⏮</button>
-          <button onClick={togglePlay} className={`${styles.btn} ${styles.playBtn}`}>
-            {isPlaying ? '⏸' : '▶'}
+          <button onClick={prev} className={styles.btn}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/>
+            </svg>
           </button>
-          <button onClick={next} className={styles.btn}>⏭</button>
+          <button onClick={togglePlay} className={`${styles.btn} ${styles.playBtn}`}>
+            {isPlaying
+              ? <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+              : <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            }
+          </button>
+          <button onClick={next} className={styles.btn}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style={{transform: 'scaleX(-1)'}}>
+              <path d="M6 6h2v12H6zm3.5 6 8.5 6V6z"/>
+            </svg>
+          </button>
         </div>
 
         {/* Progress bar */}
